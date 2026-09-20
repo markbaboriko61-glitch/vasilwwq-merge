@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Vasilwwq Merge</title>
+<link rel="stylesheet" href="style.css?v=grid-6x8-45">
+</head>
+<body data-season="0">
+<div id="homeScreen">
+  <div class="homePanel">
+    <div class="homeLogo">Vasilwwq Merge</div>
+    <div class="homeSub">Модная история Стефании</div>
+    <button class="homePlay" data-home-play>▶ <span>Играть</span></button>
+    <div class="homeMenu">
+      <button data-home-act="story"><img src="assets/ui/heart.webp"><span>История</span></button>
+      <button data-home-act="map"><img src="assets/ui/star.webp"><span>Карта</span></button>
+      <button data-home-act="album"><img src="assets/ui/gift.webp"><span>Альбом</span></button>
+      <button data-home-act="shop"><img src="assets/ui/gem.webp"><span>Магазин</span></button>
+      <button data-home-act="quests"><img src="assets/ui/star.webp"><span>Задания</span></button>
+      <button data-home-act="event"><img src="assets/ui/chest.webp"><span>Ивент</span></button>
+      <button data-home-act="sell"><img src="assets/ui/coin.webp"><span>Продать</span></button>
+      <button data-home-act="storage"><img src="assets/ui/storage.webp"><span>Склад</span></button>
+    </div>
+  </div>
+</div>
+<div id="app">
+  <div id="top">
+    <div class="stat"><img src="assets/ui/coin.webp"><span id="coinV">0</span></div>
+    <div class="stat"><img src="assets/ui/gem.webp"><span id="gemV">0</span></div>
+    <div class="stat"><img src="assets/ui/energy.webp"><span id="enV">0/150</span></div>
+    <div id="lvlBox">
+      <div class="row"><span data-t="level">Уровень</span><span id="lvlV">1</span></div>
+      <div id="xpBar"><div id="xpFill"></div></div>
+      <div id="seasonTag"></div>
+    </div>
+    <div class="spacer"></div>
+    <button class="iconBtn" data-act="settings"><img class="ico btnIco" src="assets/ui/settings.webp"></button>
+  </div>
+
+  <div id="orders"></div>
+  <div id="barTop"></div>
+
+  <div id="main">
+    <div id="sideArt">
+      <img id="sideChar" src="assets/chars/stef_autumn.webp">
+      <div id="sideCap"><div id="sideTitle">Vasilwwq Merge</div><div id="sideSub"></div></div>
+    </div>
+    <div id="boardWrap"><div id="board"></div></div>
+  </div>
+</div>
+
+<div id="railBar">
+<div id="railLeft" class="dock">
+  <button class="railBtn k-story" data-act="story" id="railStory"><img src="assets/ui/heart.webp"><span data-t="story">История</span><i class="dot"></i><b class="bdg"></b></button>
+  <button class="railBtn k-map" data-act="map"><img src="assets/ui/star.webp"><span data-t="map">Карта</span><b class="bdg"></b></button>
+  <button class="railBtn k-album" data-act="album"><img src="assets/ui/gift.webp"><span data-t="album">Альбом</span><b class="bdg"></b></button>
+</div>
+
+<div id="rail" class="dock">
+  <button class="railBtn k-shop" data-act="shop"><img src="assets/ui/gem.webp"><span data-t="shop">Магазин</span><b class="bdg"></b></button>
+  <button class="railBtn k-quests" data-act="quests" id="railQuests"><img src="assets/ui/star.webp"><span data-t="quests">Задания</span><i class="dot"></i><b class="bdg"></b></button>
+  <button class="railBtn k-event" data-act="event" id="railEvent"><img src="assets/ui/chest.webp"><span data-t="event">Ивент</span><b class="bdg"></b><u class="lk">🔒</u></button>
+  <button class="railBtn k-sell" data-act="sell" id="railSell"><img src="assets/ui/coin.webp"><span data-t="sell">Продать</span><b class="bdg"></b></button>
+</div>
+
+
+</div>
+<button id="storageBar" data-act="storage"><img class="ico" src="assets/ui/storage.webp"> <span data-t="storage">Склад</span> <span id="storageCount">0/8</span></button>
+<div id="storagePanel"></div>
+<div id="hintBar"></div>
+
+<div class="modal" id="questModal"><div class="sheet"><button class="x" data-close="#questModal"><img class="ico xIco" src="assets/ui/close.webp"></button>
+  <h3 data-t="questsTitle">Ежедневные задания</h3><div id="questList"></div></div></div>
+
+<div class="modal" id="shopModal"><div class="sheet"><button class="x" data-close="#shopModal"><img class="ico xIco" src="assets/ui/close.webp"></button>
+  <h3 data-t="shop">Магазин</h3>
+  <div id="shopTabs">
+    <button class="tab" data-tab="wardrobe"><img class="ico tabIco" src="assets/ui/fashionweek.webp"></button>
+    <button class="tab on" data-tab="gems"><img class="ico tabIco" src="assets/ui/gem.webp"></button>
+    <button class="tab" data-tab="coins"><img class="ico tabIco" src="assets/ui/coin.webp"></button>
+    <button class="tab" data-tab="energy"><img class="ico tabIco" src="assets/ui/energy.webp"></button>
+    <button class="tab" data-tab="chests"><img class="ico tabIco" src="assets/ui/chest.webp"></button>
+  </div>
+  <div id="shopBody"></div></div></div>
+
+<div class="modal" id="albumModal"><div class="sheet"><button class="x" data-close="#albumModal"><img class="ico xIco" src="assets/ui/close.webp"></button>
+  <h3><span data-t="album">Альбом</span> · <span id="albumCount"></span></h3><div id="albumBody"></div></div></div>
+
+<div class="modal" id="mapModal"><div class="sheet"><button class="x" data-close="#mapModal"><img class="ico xIco" src="assets/ui/close.webp"></button>
+  <h3 data-t="map">Карта</h3><div id="mapBody"></div></div></div>
+
+<div class="modal" id="storyModal"><div class="sheet"><button class="x" data-close="#storyModal"><img class="ico xIco" src="assets/ui/close.webp"></button>
+  <h3 data-t="story">История</h3><div id="storyBody"></div></div></div>
+
+<div class="modal" id="eventModal"><div class="sheet"><button class="x" data-close="#eventModal"><img class="ico xIco" src="assets/ui/close.webp"></button>
+  <h3 data-t="eventTitle">Неделя моды</h3>
+  <div id="evHead"><img src="assets/ui/star.webp" style="width:22px"><span id="evPts">0</span>
+    <div id="evBarWrap"><div id="evBar"></div></div><span id="evTime"></span></div>
+  <div id="evMiles"></div>
+  <div id="evBoardWrap"><div id="evBoard"></div></div></div></div>
+
+<div class="modal" id="rewardModal"><div class="sheet" style="max-width:430px;text-align:center">
+  <h3 id="rewardTitle"></h3><div id="rewardBody" class="grid"></div>
+  <button class="btnSm go" style="margin-top:12px" data-close="#rewardModal" data-t="ok">ОК</button></div></div>
+
+<div class="modal" id="settingsModal"><div class="sheet" style="max-width:380px"><button class="x" data-close="#settingsModal"><img class="ico xIco" src="assets/ui/close.webp"></button>
+  <h3 data-t="settings">Настройки</h3>
+  <div class="shopRow" style="flex-direction:column;align-items:stretch;gap:8px">
+    <button class="btnSm" id="setMusic" data-act="music"></button>
+    <button class="btnSm" id="setSfx" data-act="sfx"></button>
+    <button class="btnSm" id="setLang" data-act="lang"></button>
+    <button class="btnSm" data-act="reset" data-t="reset">Сбросить прогресс</button>
+  </div></div></div>
+
+<div id="vn">
+  <div id="vnBg"></div>
+  <div id="vnChars"></div>
+  <div id="vnTop"></div>
+  <div id="vnBar"><i></i></div>
+  <div id="vnCtl"><button id="vnAuto">Auto</button><button id="vnSkip">Skip</button></div>
+  <div id="vnBox">
+    <div id="vnName"></div>
+    <div id="vnText"></div>
+    <div id="vnChoices"></div>
+    <div id="vnNext"><img class="ico nextIco" src="assets/ui/play.webp"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<div id="fx"></div>
+
+<script src="js/data.js?v=grid-6x8-45"></script>
+<script src="js/story.js?v=grid-6x8-45"></script>
+<script src="js/game.js?v=grid-6x8-45"></script>
+</body>
+</html>
